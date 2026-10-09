@@ -1,0 +1,809 @@
+.review-page {
+  min-height: 100vh;
+  background: radial-gradient(
+      circle at 70% 10%,
+      rgba(0, 255, 100, 0.05),
+      transparent 30%
+    ),
+    #030603;
+  color: #dff5df;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.review-topbar {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  border-bottom: 1px solid #172017;
+  background: rgba(3, 7, 3, 0.92);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.review-logo {
+  width: 220px;
+  color: #dff5df;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.review-logo span {
+  color: #00ff66;
+  margin-right: 9px;
+  text-shadow: 0 0 12px #00ff66, 0 0 25px rgba(0, 255, 100, 0.4);
+}
+
+.review-center {
+  flex: 1;
+  text-align: center;
+  color: #849184;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.review-center span {
+  margin-left: 12px;
+  color: #00ff66;
+  font-size: 8px;
+}
+
+/* =========================
+   TOP ACTIONS
+========================= */
+
+.review-actions {
+  width: 450px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.review-actions select {
+  height: 38px;
+  max-width: 150px;
+  padding: 0 12px;
+  background: #070d07;
+  border: 1px solid #263326;
+  color: #9bab9b;
+  font: 9px 'JetBrains Mono', monospace;
+  outline: none;
+}
+
+.review-actions select:focus {
+  border-color: #00ff66;
+}
+
+.clear-btn {
+  height: 38px;
+  padding: 0 13px;
+  background: transparent;
+  border: 1px solid #263326;
+  color: #536153;
+  font: 9px 'JetBrains Mono', monospace;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  color: #00ff66;
+  border-color: #00ff66;
+}
+
+.analyze-btn {
+  height: 38px;
+  padding: 0 17px;
+  border: none;
+  background: #00ff66;
+  color: #020602;
+  font: 700 9px 'JetBrains Mono', monospace;
+  letter-spacing: 1px;
+  box-shadow: 0 0 20px rgba(0, 255, 100, 0.12);
+  transition: 0.25s;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.analyze-btn:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 100, 0.3);
+  transform: translateY(-1px);
+}
+
+.analyze-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* =========================
+   MAIN EDITOR
+========================= */
+
+.review-main {
+  margin: 30px auto;
+  width: min(1250px, calc(100% - 60px));
+  border: 1px solid #172217;
+  background: #050905;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+/* =========================
+   EDITOR HEADER
+========================= */
+
+.editor-header {
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 17px;
+  border-bottom: 1px solid #172017;
+  background: #070c07;
+  gap: 15px;
+}
+
+.editor-file {
+  color: #8a998a;
+  font-size: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 9px;
+  border-radius: 50%;
+  background: #00ff66;
+  box-shadow: 0 0 7px #00ff66;
+}
+
+.editor-info {
+  color: #394639;
+  font-size: 8px;
+  white-space: nowrap;
+}
+
+/* =========================
+   MONACO EDITOR
+========================= */
+
+.real-editor {
+  width: 100%;
+  max-width: 100%;
+  background: #050905;
+  overflow: hidden;
+}
+
+/* =========================
+   STATUS BAR
+========================= */
+
+.editor-statusbar {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-top: 1px solid #172017;
+  background: #070c07;
+  color: #394639;
+  font-size: 8px;
+  gap: 15px;
+}
+
+.online-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: #00ff66;
+  box-shadow: 0 0 7px #00ff66;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* =========================
+   AI REVIEW
+========================= */
+
+.ai-review {
+  width: min(1250px, calc(100% - 60px));
+  margin: 30px auto 80px;
+  padding: 30px;
+  border: 1px solid rgba(0, 255, 100, 0.18);
+  background: radial-gradient(
+      circle at 85% 0%,
+      rgba(0, 255, 100, 0.06),
+      transparent 30%
+    ),
+    #050905;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+
+  /* REVIEW CONTENT STARTS FROM LEFT */
+  text-align: left;
+}
+
+/* =========================
+   REVIEW HEADER
+========================= */
+
+.ai-review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #172017;
+  gap: 25px;
+}
+
+.ai-label {
+  color: #00ff66;
+  font: 9px 'JetBrains Mono', monospace;
+  letter-spacing: 1.5px;
+}
+
+.ai-review-header h2 {
+  margin-top: 8px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #dff5df;
+}
+
+.ai-subtitle {
+  margin-top: 7px;
+  color: #536153;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+/* =========================
+   SCORE
+========================= */
+
+.review-score {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 255, 100, 0.35);
+  background: rgba(0, 255, 100, 0.025);
+  box-shadow: 0 0 25px rgba(0, 255, 100, 0.08);
+
+  /* Score remains centered inside its box */
+  text-align: center;
+}
+
+.review-score span {
+  color: #526052;
+  font: 7px 'JetBrains Mono', monospace;
+}
+
+.review-score strong {
+  color: #00ff66;
+  font-size: 27px;
+  line-height: 1;
+}
+
+.review-score small {
+  color: #3f4c3f;
+  font: 8px 'JetBrains Mono', monospace;
+}
+
+/* =========================
+   SUMMARY CARDS
+========================= */
+
+.review-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.review-card {
+  min-height: 150px;
+  padding: 20px;
+  border: 1px solid #172217;
+  background: #070c07;
+  transition: 0.25s;
+  box-sizing: border-box;
+
+  /* LEFT ALIGN AI CONTENT */
+  text-align: left;
+}
+
+.review-card:hover {
+  border-color: rgba(0, 255, 100, 0.3);
+  transform: translateY(-2px);
+}
+
+.review-card-label {
+  display: block;
+  color: #4d5c4d;
+  font: 8px 'JetBrains Mono', monospace;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.review-card strong {
+  display: block;
+  margin-top: 25px;
+  color: #00ff66;
+  font-size: 21px;
+  word-break: break-word;
+  text-align: left;
+}
+
+.review-card p {
+  margin-top: 9px;
+  color: #566356;
+  font-size: 9px;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.success-card strong {
+  text-shadow: 0 0 10px rgba(0, 255, 100, 0.35);
+}
+
+.topic-card {
+  border-color: rgba(0, 255, 100, 0.2);
+}
+
+/* =========================
+   DETAILED REVIEW
+========================= */
+
+.review-details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.review-detail-panel {
+  min-height: 190px;
+  padding: 22px;
+  border: 1px solid #172217;
+  background: rgba(7, 12, 7, 0.7);
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+
+  /* LEFT ALIGN */
+  text-align: left;
+}
+
+.review-detail-panel .ai-label {
+  text-align: left;
+}
+
+.review-detail-panel h3 {
+  margin-top: 12px;
+  color: #c2d1c2;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.review-detail-panel ul {
+  list-style: none;
+  margin-top: 18px;
+  padding: 0;
+  text-align: left;
+}
+
+.review-detail-panel li {
+  margin-bottom: 11px;
+  color: #697869;
+  font-size: 10px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.review-detail-panel code {
+  color: #67e8f9;
+  font-family: 'JetBrains Mono', monospace;
+  overflow-wrap: anywhere;
+}
+
+.bug-status {
+  margin-top: 18px;
+  padding: 11px;
+  border: 1px solid rgba(0, 255, 100, 0.15);
+  background: rgba(0, 255, 100, 0.025);
+  color: #00ff66;
+  font: 9px 'JetBrains Mono', monospace;
+  text-align: left;
+}
+
+.bug-status span {
+  margin-right: 8px;
+}
+
+.detail-text {
+  margin-top: 12px;
+  color: #536153;
+  font-size: 9px;
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* =========================
+   AI SUMMARY
+========================= */
+
+.ai-summary {
+  display: flex;
+  gap: 18px;
+  margin-top: 12px;
+  padding: 22px;
+  border: 1px solid rgba(0, 255, 100, 0.15);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 100, 0.035),
+    transparent
+  );
+  box-sizing: border-box;
+
+  /* LEFT ALIGN */
+  text-align: left;
+}
+
+.summary-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 255, 100, 0.35);
+  color: #00ff66;
+  font: 700 10px 'JetBrains Mono', monospace;
+  box-shadow: 0 0 15px rgba(0, 255, 100, 0.08);
+
+  /* Icon stays centered */
+  text-align: center;
+}
+
+.summary-text {
+  max-width: 850px;
+  margin-top: 8px;
+  color: #657365;
+  font-size: 10px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+
+/* =========================
+   BOTTOM ACTIONS
+========================= */
+
+.review-actions-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+  gap: 15px;
+}
+
+.secondary-review-btn,
+.dashboard-review-btn {
+  padding: 11px 15px;
+  font: 9px 'JetBrains Mono', monospace;
+  text-decoration: none;
+  transition: 0.2s;
+  text-align: center;
+}
+
+.secondary-review-btn {
+  border: 1px solid #263326;
+  background: transparent;
+  color: #657365;
+}
+
+.secondary-review-btn:hover {
+  color: #00ff66;
+  border-color: #00ff66;
+}
+
+.dashboard-review-btn {
+  border: 1px solid rgba(0, 255, 100, 0.35);
+  background: rgba(0, 255, 100, 0.05);
+  color: #00ff66;
+}
+
+.dashboard-review-btn:hover {
+  background: rgba(0, 255, 100, 0.1);
+  box-shadow: 0 0 20px rgba(0, 255, 100, 0.1);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+  .review-topbar {
+    padding: 0 18px;
+  }
+
+  .review-logo {
+    width: 180px;
+  }
+
+  .review-actions {
+    width: auto;
+  }
+
+  .review-main,
+  .ai-review {
+    width: calc(100% - 40px);
+  }
+
+  .review-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .review-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   TABLET / SMALL LAPTOP
+========================= */
+
+@media (max-width: 850px) {
+  .review-topbar {
+    height: 64px;
+  }
+
+  .review-center {
+    display: none;
+  }
+
+  .review-logo {
+    width: auto;
+    flex: 1;
+  }
+
+  .review-actions {
+    width: auto;
+  }
+
+  .clear-btn {
+    display: none;
+  }
+
+  .review-main {
+    margin-top: 18px;
+  }
+
+  .ai-review {
+    margin-top: 20px;
+    padding: 24px;
+  }
+
+  .ai-review-header h2 {
+    font-size: 22px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .review-topbar {
+    height: 60px;
+    padding: 0 12px;
+  }
+
+  .review-logo {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .review-actions {
+    gap: 7px;
+  }
+
+  .review-actions select {
+    display: none;
+  }
+
+  .analyze-btn {
+    height: 34px;
+    padding: 0 10px;
+    font-size: 8px;
+  }
+
+  .review-main {
+    width: calc(100% - 20px);
+    margin: 12px auto 20px;
+  }
+
+  .editor-header {
+    min-height: 42px;
+    padding: 0 12px;
+  }
+
+  .editor-file {
+    font-size: 9px;
+  }
+
+  .editor-info {
+    display: none;
+  }
+
+  .editor-statusbar {
+    padding: 0 10px;
+    font-size: 7px;
+  }
+
+  .real-editor {
+    min-width: 0;
+  }
+
+  .ai-review {
+    width: calc(100% - 20px);
+    margin: 20px auto 50px;
+    padding: 18px;
+  }
+
+  .ai-review-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .ai-review-header h2 {
+    font-size: 19px;
+  }
+
+  .ai-subtitle {
+    font-size: 9px;
+  }
+
+  .review-score {
+    width: 80px;
+    height: 80px;
+    align-self: flex-end;
+  }
+
+  .review-score strong {
+    font-size: 23px;
+  }
+
+  .review-summary-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .review-card {
+    min-height: 125px;
+    padding: 17px;
+  }
+
+  .review-card strong {
+    margin-top: 18px;
+    font-size: 19px;
+  }
+
+  .review-details-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .review-detail-panel {
+    min-height: auto;
+    padding: 18px;
+  }
+
+  .review-detail-panel h3 {
+    font-size: 13px;
+  }
+
+  .review-detail-panel li {
+    font-size: 9px;
+  }
+
+  .ai-summary {
+    gap: 12px;
+    padding: 17px;
+  }
+
+  .summary-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .summary-text {
+    font-size: 9px;
+  }
+
+  .review-actions-bottom {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .secondary-review-btn,
+  .dashboard-review-btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media (max-width: 400px) {
+  .review-topbar {
+    padding: 0 9px;
+  }
+
+  .review-logo {
+    font-size: 9px;
+  }
+
+  .analyze-btn {
+    padding: 0 8px;
+    font-size: 7px;
+  }
+
+  .review-main,
+  .ai-review {
+    width: calc(100% - 14px);
+  }
+
+  .ai-review {
+    padding: 15px;
+  }
+
+  .ai-review-header h2 {
+    font-size: 17px;
+  }
+
+  .review-card {
+    padding: 15px;
+  }
+
+  .review-detail-panel {
+    padding: 15px;
+  }
+
+  .editor-statusbar {
+    font-size: 6px;
+  }
+}

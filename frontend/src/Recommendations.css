@@ -1,0 +1,781 @@
+/* =========================
+   PAGE
+========================= */
+
+.recommendations-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 75% 5%,
+      rgba(0, 255, 100, 0.07),
+      transparent 30%
+    ),
+    #030603;
+  color: #dff5df;
+  font-family: "Space Grotesk", sans-serif;
+  overflow-x: hidden;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.recommendations-header {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  padding: 0 6%;
+  border-bottom: 1px solid rgba(0, 255, 100, 0.12);
+  background: rgba(3, 6, 3, 0.92);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(12px);
+}
+
+.recommendations-logo {
+  color: #dff5df;
+  text-decoration: none;
+  font: 700 13px "JetBrains Mono", monospace;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.recommendations-logo span {
+  color: #00ff66;
+  margin-right: 8px;
+  text-shadow: 0 0 12px rgba(0, 255, 100, 0.8);
+}
+
+.recommendations-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.recommendations-nav a,
+.recommendations-nav span {
+  color: #526052;
+  text-decoration: none;
+  font: 8px "JetBrains Mono", monospace;
+  letter-spacing: 1px;
+  transition: 0.2s;
+}
+
+.recommendations-nav a:hover,
+.recommendations-nav .active {
+  color: #00ff66;
+}
+
+.recommendations-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #526052;
+  font: 8px "JetBrains Mono", monospace;
+  white-space: nowrap;
+}
+
+.recommendations-status span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00ff66;
+  box-shadow: 0 0 9px #00ff66;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.recommendations-main {
+  width: 100%;
+  max-width: 1250px;
+  margin: auto;
+  padding: 75px 30px;
+  box-sizing: border-box;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.recommendations-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.recommendations-label {
+  color: #00ff66;
+  font: 9px "JetBrains Mono", monospace;
+  letter-spacing: 2px;
+}
+
+.recommendations-title h1 {
+  margin-top: 18px;
+  font-size: clamp(48px, 6vw, 76px);
+  line-height: 0.9;
+  letter-spacing: -4px;
+  font-weight: 600;
+}
+
+.recommendations-title h1 span {
+  color: #00ff66;
+  text-shadow: 0 0 30px rgba(0, 255, 100, 0.25);
+}
+
+.recommendations-description {
+  max-width: 570px;
+  margin-top: 22px;
+  color: #596659;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* =========================
+   AI ENGINE
+========================= */
+
+.engine-status {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 20px;
+  border: 1px solid rgba(0, 255, 100, 0.18);
+  background: rgba(0, 255, 100, 0.025);
+  box-sizing: border-box;
+}
+
+.engine-ring {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #00ff66;
+  border-radius: 50%;
+  color: #00ff66;
+  font: 700 11px "JetBrains Mono", monospace;
+  box-shadow: 0 0 20px rgba(0, 255, 100, 0.12);
+}
+
+.engine-status small {
+  display: block;
+  color: #465446;
+  font: 7px "JetBrains Mono", monospace;
+}
+
+.engine-status strong {
+  display: block;
+  margin-top: 5px;
+  color: #00ff66;
+  font: 10px "JetBrains Mono", monospace;
+}
+
+/* =========================
+   SECTION HEADINGS
+========================= */
+
+.weak-section {
+  margin-top: 75px;
+}
+
+.problems-section {
+  margin-top: 70px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  gap: 15px;
+}
+
+.section-heading p {
+  color: #00ff66;
+  font: 9px "JetBrains Mono", monospace;
+  letter-spacing: 1.5px;
+}
+
+.section-heading span {
+  color: #3f4c3f;
+  font: 8px "JetBrains Mono", monospace;
+}
+
+/* =========================
+   WEAK AREAS
+========================= */
+
+.weak-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.weak-card {
+  padding: 22px;
+  border: 1px solid #172217;
+  background: rgba(7, 12, 7, 0.7);
+  transition: 0.25s;
+  box-sizing: border-box;
+}
+
+.weak-card:hover {
+  border-color: rgba(0, 255, 100, 0.3);
+  transform: translateY(-3px);
+}
+
+.weak-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.weak-top span {
+  color: #647164;
+  font: 8px "JetBrains Mono", monospace;
+}
+
+.weak-top strong {
+  color: #00ff66;
+  font-size: 15px;
+}
+
+.progress-bar {
+  height: 4px;
+  margin-top: 17px;
+  background: #142014;
+  overflow: hidden;
+}
+
+.progress-bar div {
+  height: 100%;
+  background: #00ff66;
+  box-shadow: 0 0 10px rgba(0, 255, 100, 0.5);
+}
+
+.weak-card p {
+  margin-top: 14px;
+  color: #4f5d4f;
+  font-size: 9px;
+  line-height: 1.7;
+}
+
+/* =========================
+   PROBLEM LIST
+========================= */
+
+.problems-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.problem-card {
+  min-height: 125px;
+  display: grid;
+  grid-template-columns: 145px minmax(0, 1fr) 100px 150px;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #172217;
+  background: rgba(5, 9, 5, 0.8);
+  transition: 0.25s;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.problem-card:hover {
+  border-color: rgba(0, 255, 100, 0.35);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 255, 100, 0.035),
+      transparent
+    );
+  transform: translateX(3px);
+}
+
+/* =========================
+   PLATFORM
+========================= */
+
+.problem-platform {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #536153;
+  font: 8px "JetBrains Mono", monospace;
+  letter-spacing: 1px;
+  min-width: 0;
+}
+
+.platform-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #263326;
+  color: #00ff66;
+  font: 700 8px "JetBrains Mono", monospace;
+  background: rgba(0, 255, 100, 0.02);
+}
+
+/* =========================
+   PROBLEM INFORMATION
+========================= */
+
+.problem-info {
+  min-width: 0;
+}
+
+.problem-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.problem-number {
+  flex-shrink: 0;
+  color: #3f4c3f;
+  font: 9px "JetBrains Mono", monospace;
+}
+
+.problem-title h3 {
+  overflow: hidden;
+  color: #bdcbbd;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.problem-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 9px;
+}
+
+.problem-meta > span {
+  padding: 4px 7px;
+  border: 1px solid #1d2a1d;
+  color: #536153;
+  font: 7px "JetBrains Mono", monospace;
+}
+
+.problem-meta .difficulty {
+  border-color: #263326;
+}
+
+.difficulty.easy {
+  color: #00ff66;
+}
+
+.difficulty.medium {
+  color: #e5d86b;
+}
+
+.difficulty.hard {
+  color: #ff7070;
+}
+
+.problem-info p {
+  max-width: 700px;
+  margin-top: 9px;
+  color: #4f5d4f;
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+/* =========================
+   RATING
+========================= */
+
+.problem-rating {
+  text-align: center;
+}
+
+.problem-rating small {
+  display: block;
+  color: #3f4c3f;
+  font: 7px "JetBrains Mono", monospace;
+  letter-spacing: 1px;
+}
+
+.problem-rating strong {
+  display: block;
+  margin-top: 6px;
+  color: #00ff66;
+  font: 500 15px "JetBrains Mono", monospace;
+}
+
+/* =========================
+   SOLVE / VIEW BUTTON
+========================= */
+
+.solve-btn {
+  justify-self: end;
+  padding: 11px 13px;
+  border: 1px solid rgba(0, 255, 100, 0.25);
+  background: rgba(0, 255, 100, 0.025);
+  color: #00ff66;
+  text-decoration: none;
+  font: 8px "JetBrains Mono", monospace;
+  white-space: nowrap;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.solve-btn:hover {
+  background: rgba(0, 255, 100, 0.1);
+  border-color: #00ff66;
+  box-shadow: 0 0 18px rgba(0, 255, 100, 0.1);
+}
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.recommendation-note {
+  display: flex;
+  gap: 15px;
+  margin-top: 35px;
+  padding: 20px;
+  border: 1px solid rgba(0, 255, 100, 0.12);
+  background: rgba(0, 255, 100, 0.02);
+  box-sizing: border-box;
+}
+
+.note-icon {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 255, 100, 0.3);
+  color: #00ff66;
+  font: 700 9px "JetBrains Mono", monospace;
+}
+
+.recommendation-note p:last-child {
+  max-width: 900px;
+  margin-top: 8px;
+  color: #536153;
+  font-size: 9px;
+  line-height: 1.8;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.recommendations-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 70px;
+  padding-top: 20px;
+  border-top: 1px solid #142014;
+  color: #344034;
+  font: 8px "JetBrains Mono", monospace;
+}
+
+.recommendations-footer b {
+  color: #00ff66;
+  font-weight: normal;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1050px) {
+  .recommendations-header {
+    padding: 0 30px;
+  }
+
+  .recommendations-nav {
+    gap: 16px;
+  }
+
+  .recommendations-main {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .problem-card {
+    grid-template-columns: 120px minmax(0, 1fr) 80px 130px;
+    gap: 12px;
+  }
+}
+
+/* =========================
+   SMALL TABLET
+========================= */
+
+@media (max-width: 850px) {
+  .recommendations-header {
+    padding: 0 20px;
+  }
+
+  .recommendations-nav {
+    display: none;
+  }
+
+  .recommendations-main {
+    padding: 55px 20px;
+  }
+
+  .recommendations-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
+
+  .engine-status {
+    width: 100%;
+  }
+
+  .weak-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .problem-card {
+    grid-template-columns: 1fr auto;
+    padding: 20px;
+    gap: 14px;
+  }
+
+  .problem-platform {
+    grid-column: 1 / -1;
+  }
+
+  .problem-info {
+    grid-column: 1;
+  }
+
+  .problem-rating {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: right;
+  }
+
+  .solve-btn {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .recommendation-note {
+    align-items: flex-start;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 550px) {
+  .recommendations-header {
+    height: 62px;
+    padding: 0 14px;
+  }
+
+  .recommendations-logo {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .recommendations-status {
+    display: none;
+  }
+
+  .recommendations-main {
+    padding: 40px 14px 50px;
+  }
+
+  .recommendations-title {
+    gap: 20px;
+  }
+
+  .recommendations-label {
+    font-size: 8px;
+  }
+
+  .recommendations-title h1 {
+    font-size: 50px;
+    letter-spacing: -3px;
+  }
+
+  .recommendations-description {
+    font-size: 10px;
+    line-height: 1.7;
+  }
+
+  .engine-status {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .engine-ring {
+    width: 45px;
+    height: 45px;
+    font-size: 9px;
+  }
+
+  .engine-status strong {
+    font-size: 9px;
+  }
+
+  .weak-section {
+    margin-top: 55px;
+  }
+
+  .problems-section {
+    margin-top: 55px;
+  }
+
+  .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+  }
+
+  .section-heading p {
+    font-size: 8px;
+  }
+
+  .problem-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 13px;
+    padding: 16px;
+  }
+
+  .problem-platform {
+    width: 100%;
+  }
+
+  .problem-info {
+    width: 100%;
+  }
+
+  .problem-title {
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .problem-title h3 {
+    white-space: normal;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .problem-number {
+    padding-top: 2px;
+  }
+
+  .problem-info p {
+    font-size: 8px;
+    line-height: 1.7;
+  }
+
+  .problem-rating {
+    text-align: left;
+  }
+
+  .problem-rating strong {
+    font-size: 14px;
+  }
+
+  .solve-btn {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 12px;
+  }
+
+  .recommendation-note {
+    padding: 15px;
+    gap: 12px;
+  }
+
+  .note-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .recommendation-note p:last-child {
+    font-size: 8px;
+  }
+
+  .recommendations-footer {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 50px;
+  }
+}
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media (max-width: 400px) {
+  .recommendations-header {
+    padding: 0 10px;
+  }
+
+  .recommendations-logo {
+    font-size: 9px;
+  }
+
+  .recommendations-main {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .recommendations-title h1 {
+    font-size: 43px;
+    letter-spacing: -2px;
+  }
+
+  .recommendations-description {
+    font-size: 9px;
+  }
+
+  .weak-card {
+    padding: 17px;
+  }
+
+  .problem-card {
+    padding: 14px;
+  }
+
+  .problem-meta > span {
+    font-size: 6px;
+  }
+
+  .recommendation-note {
+    padding: 13px;
+  }
+}

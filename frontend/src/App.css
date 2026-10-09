@@ -1,0 +1,745 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: "Space Grotesk", sans-serif;
+  color: #e8ffe8;
+  background: #030603;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+
+  background:
+    radial-gradient(
+      circle at 70% 20%,
+      rgba(0, 255, 100, 0.08),
+      transparent 30%
+    ),
+    #030603;
+}
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.04;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 255, 100, 0.4) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 255, 100, 0.4) 1px,
+      transparent 1px
+    );
+
+  background-size: 40px 40px;
+
+  z-index: 10;
+}
+
+button,
+a {
+  font-family: "JetBrains Mono", monospace;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 6%;
+
+  border-bottom: 1px solid rgba(0, 255, 100, 0.12);
+
+  background: rgba(3, 6, 3, 0.8);
+
+  backdrop-filter: blur(12px);
+
+  position: sticky;
+  top: 0;
+
+  z-index: 20;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  font-family: "JetBrains Mono", monospace;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  color: #caffca;
+}
+
+.logo-symbol {
+  color: #00ff66;
+
+  text-shadow:
+    0 0 12px rgba(0, 255, 100, 0.8);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+
+  gap: 30px;
+}
+
+.nav-links a {
+  color: #7d907d;
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  transition: 0.2s;
+}
+
+.nav-links a:hover {
+  color: #00ff66;
+}
+
+
+/* Login / Signup */
+
+.login-btn,
+.signup-btn {
+  border: 1px solid transparent;
+
+  background: none;
+
+  padding: 12px 18px;
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+
+  transition: 0.25s;
+
+  text-decoration: none;
+
+  display: inline-block;
+}
+
+.login-btn {
+  color: #caffca;
+}
+
+.signup-btn {
+  color: #00ff66;
+
+  border-color: rgba(0, 255, 100, 0.4);
+}
+
+.signup-btn:hover {
+  background: rgba(0, 255, 100, 0.08);
+
+  box-shadow:
+    0 0 20px rgba(0, 255, 100, 0.15);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  max-width: 1400px;
+
+  min-height: calc(100vh - 76px);
+
+  margin: auto;
+
+  padding: 90px 6%;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+
+  gap: 70px;
+}
+
+.status {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  font-family: "JetBrains Mono", monospace;
+
+  font-size: 11px;
+
+  color: #00ff66;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 25px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  background: #00ff66;
+
+  border-radius: 50%;
+
+  box-shadow: 0 0 12px #00ff66;
+
+  animation: pulse 1.5s infinite;
+}
+
+.hero h1 {
+  font-size: clamp(60px, 7vw, 110px);
+
+  line-height: 0.88;
+
+  letter-spacing: -5px;
+
+  font-weight: 700;
+}
+
+.hero h1 span,
+.features h2 span,
+.cta h2 span {
+  color: #00ff66;
+
+  text-shadow:
+    0 0 30px rgba(0, 255, 100, 0.25);
+}
+
+.hero-text {
+  margin-top: 35px;
+
+  color: #788578;
+
+  line-height: 1.8;
+
+  font-size: 15px;
+}
+
+.hero-buttons {
+  display: flex;
+
+  gap: 14px;
+
+  margin-top: 35px;
+}
+
+
+/* Buttons */
+
+.primary-btn,
+.secondary-btn {
+  border: 1px solid transparent;
+
+  padding: 12px 18px;
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+
+  transition: 0.25s;
+
+  text-decoration: none;
+
+  display: inline-block;
+}
+
+.primary-btn {
+  background: #00ff66;
+
+  color: #020602;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 0 25px rgba(0, 255, 100, 0.2);
+}
+
+.primary-btn:hover {
+  box-shadow:
+    0 0 35px rgba(0, 255, 100, 0.4);
+
+  transform: translateY(-2px);
+}
+
+.primary-btn span {
+  margin-left: 12px;
+}
+
+.secondary-btn {
+  color: #91a091;
+
+  border-color: #293329;
+}
+
+.secondary-btn:hover {
+  color: #00ff66;
+
+  border-color: #00ff66;
+}
+
+.terminal-line {
+  margin-top: 45px;
+
+  color: #405040;
+
+  font: 12px "JetBrains Mono", monospace;
+}
+
+.terminal-line span:first-child {
+  color: #00ff66;
+}
+
+.cursor {
+  color: #00ff66;
+
+  animation: blink 1s infinite;
+}
+
+
+/* =========================
+   TERMINAL VISUAL
+========================= */
+
+.hero-visual {
+  position: relative;
+}
+
+.glow {
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  background: rgba(0, 255, 100, 0.13);
+
+  filter: blur(100px);
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.terminal-window {
+  position: relative;
+
+  border: 1px solid rgba(0, 255, 100, 0.22);
+
+  background: #050905;
+
+  box-shadow:
+    0 0 50px rgba(0, 255, 100, 0.08),
+    inset 0 0 40px rgba(0, 255, 100, 0.025);
+}
+
+.terminal-header {
+  height: 42px;
+
+  border-bottom: 1px solid rgba(0, 255, 100, 0.12);
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0 15px;
+}
+
+.terminal-dots {
+  display: flex;
+
+  gap: 6px;
+}
+
+.terminal-dots span {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #263026;
+}
+
+.terminal-title {
+  margin: auto;
+
+  color: #405040;
+
+  font: 10px "JetBrains Mono", monospace;
+}
+
+.terminal-body {
+  padding: 25px;
+
+  font: 12px "JetBrains Mono", monospace;
+
+  color: #839083;
+}
+
+.code-line {
+  line-height: 2;
+}
+
+.line-number {
+  color: #263026;
+
+  display: inline-block;
+
+  width: 30px;
+}
+
+.purple {
+  color: #c084fc;
+}
+
+.cyan {
+  color: #67e8f9;
+}
+
+.comment {
+  color: #3f553f;
+}
+
+
+/* =========================
+   AI REVIEW BOX
+========================= */
+
+.review-box {
+  margin-top: 25px;
+
+  padding: 18px;
+
+  border: 1px solid rgba(0, 255, 100, 0.2);
+
+  background: rgba(0, 255, 100, 0.025);
+}
+
+.review-header {
+  color: #caffca;
+
+  font-size: 11px;
+}
+
+.green {
+  color: #00ff66;
+
+  margin-right: 8px;
+
+  text-shadow: 0 0 10px #00ff66;
+}
+
+.review-stats {
+  display: flex;
+
+  gap: 45px;
+
+  margin-top: 20px;
+}
+
+.review-stats small {
+  display: block;
+
+  color: #405040;
+
+  font-size: 9px;
+
+  margin-bottom: 5px;
+}
+
+.review-stats strong {
+  color: #00ff66;
+
+  font-size: 17px;
+}
+
+.review-stats strong span {
+  color: #405040;
+
+  font-size: 10px;
+}
+
+.review-message {
+  margin-top: 20px;
+
+  color: #647164;
+
+  line-height: 1.8;
+}
+
+.review-message span {
+  color: #00ff66;
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
+.features {
+  max-width: 1400px;
+
+  margin: auto;
+
+  padding: 120px 6%;
+}
+
+.section-label {
+  color: #00ff66;
+
+  font: 11px "JetBrains Mono", monospace;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 25px;
+}
+
+.features h2,
+.cta h2 {
+  font-size: clamp(42px, 5vw, 72px);
+
+  line-height: 0.95;
+
+  letter-spacing: -3px;
+}
+
+.feature-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+
+  margin-top: 65px;
+}
+
+.feature-card {
+  min-height: 270px;
+
+  padding: 28px;
+
+  border: 1px solid #182018;
+
+  background: rgba(7, 12, 7, 0.7);
+
+  position: relative;
+
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  border-color: rgba(0, 255, 100, 0.4);
+
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 15px 40px rgba(0, 255, 100, 0.05);
+}
+
+.feature-number {
+  color: #314031;
+
+  font: 10px "JetBrains Mono", monospace;
+}
+
+.feature-icon {
+  margin-top: 45px;
+
+  color: #00ff66;
+
+  font: 22px "JetBrains Mono", monospace;
+
+  text-shadow:
+    0 0 15px rgba(0, 255, 100, 0.4);
+}
+
+.feature-card h3 {
+  margin-top: 18px;
+
+  font: 600 14px "JetBrains Mono", monospace;
+
+  letter-spacing: 1px;
+}
+
+.feature-card p {
+  margin-top: 12px;
+
+  color: #617061;
+
+  line-height: 1.7;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta {
+  text-align: center;
+
+  padding: 130px 20px;
+
+  border-top: 1px solid #142014;
+}
+
+.cta .section-label {
+  text-align: center;
+}
+
+.cta .primary-btn {
+  margin-top: 40px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  border-top: 1px solid #142014;
+
+  padding: 25px 6%;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #344034;
+
+  font: 9px "JetBrains Mono", monospace;
+}
+
+footer span {
+  color: #00ff66;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  .nav-links a {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+
+    padding-top: 70px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    letter-spacing: -3px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .signup-btn {
+    display: none;
+  }
+
+  .hero,
+  .features {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero h1 {
+    font-size: 58px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .review-stats {
+    gap: 20px;
+  }
+
+  footer {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+}

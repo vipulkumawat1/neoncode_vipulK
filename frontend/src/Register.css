@@ -1,0 +1,308 @@
+.register-page {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 20px;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(0, 255, 100, 0.07),
+      transparent 35%
+    ),
+    #020502;
+
+  position: relative;
+}
+
+.register-page::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 255, 100, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 255, 100, 0.05) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+
+  opacity: 0.25;
+
+  pointer-events: none;
+}
+
+.register-container {
+  width: 100%;
+  max-width: 660px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+  z-index: 2;
+}
+
+.register-brand {
+  font-family: "JetBrains Mono", monospace;
+
+  font-size: 24px;
+  font-weight: 700;
+
+  letter-spacing: 5px;
+
+  color: #eaffea;
+
+  margin-bottom: 20px;
+}
+
+.register-brand span {
+  color: #00ff66;
+
+  margin-right: 12px;
+
+  text-shadow:
+    0 0 10px #00ff66,
+    0 0 25px rgba(0, 255, 100, 0.5);
+}
+
+.register-label {
+  color: #00ff66;
+
+  font: 11px "JetBrains Mono", monospace;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 35px;
+}
+
+.register-card {
+  width: 100%;
+
+  border: 1px solid rgba(0, 255, 100, 0.25);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(7, 15, 8, 0.96),
+      rgba(2, 7, 3, 0.98)
+    );
+
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(0, 255, 100, 0.04);
+
+  border-radius: 4px;
+
+  overflow: hidden;
+}
+
+.register-header {
+  text-align: center;
+
+  padding: 40px 40px 28px;
+}
+
+.register-header h1 {
+  font-size: 36px;
+
+  font-weight: 600;
+
+  letter-spacing: -1.5px;
+
+  color: #efffef;
+}
+
+.register-header p {
+  margin-top: 10px;
+
+  color: #718071;
+
+  font-size: 13px;
+}
+
+.register-divider {
+  height: 1px;
+
+  background: rgba(0, 255, 100, 0.12);
+
+  margin: 0 48px;
+}
+
+.register-card form {
+  padding: 30px 48px 0;
+}
+
+.register-input-group {
+  margin-bottom: 19px;
+}
+
+.register-input-group label {
+  display: block;
+
+  text-align: left;
+
+  margin-bottom: 8px;
+
+  color: #00ff66;
+
+  font: 600 10px "JetBrains Mono", monospace;
+
+  letter-spacing: 1.5px;
+}
+
+.register-input-group input {
+  width: 100%;
+
+  height: 50px;
+
+  padding: 0 15px;
+
+  border: 1px solid #293529;
+
+  outline: none;
+
+  background: rgba(0, 0, 0, 0.3);
+
+  color: #dffff0;
+
+  font: 12px "JetBrains Mono", monospace;
+
+  transition: 0.25s;
+}
+
+.register-input-group input::placeholder {
+  color: #566056;
+}
+
+.register-input-group input:focus {
+  border-color: #00ff66;
+
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 100, 0.1),
+    0 0 20px rgba(0, 255, 100, 0.05);
+}
+
+.register-button {
+  width: 100%;
+
+  height: 52px;
+
+  margin-top: 5px;
+
+  border: none;
+
+  background: #00e85d;
+
+  color: #021006;
+
+  font: 700 11px "JetBrains Mono", monospace;
+
+  letter-spacing: 1.5px;
+
+  transition: 0.25s;
+}
+
+.register-button span {
+  margin-left: 15px;
+
+  font-size: 16px;
+}
+
+.register-button:hover {
+  background: #00ff66;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 0 30px rgba(0, 255, 100, 0.25);
+}
+
+.login-link {
+  text-align: center;
+
+  padding: 28px 20px;
+
+  color: #687568;
+
+  font-size: 12px;
+}
+
+.login-link a {
+  color: #00e85d;
+
+  text-decoration: none;
+
+  margin-left: 5px;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+.register-security {
+  height: 75px;
+
+  border-top: 1px solid rgba(0, 255, 100, 0.12);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  color: #465246;
+
+  font: 9px "JetBrains Mono", monospace;
+
+  letter-spacing: 1.5px;
+}
+
+.register-security span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #00ff66;
+
+  box-shadow:
+    0 0 8px #00ff66,
+    0 0 20px rgba(0, 255, 100, 0.5);
+}
+
+@media (max-width: 600px) {
+  .register-card form {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .register-divider {
+    margin: 0 25px;
+  }
+
+  .register-header {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .register-header h1 {
+    font-size: 29px;
+  }
+
+  .register-brand {
+    font-size: 19px;
+  }
+}

@@ -1,0 +1,473 @@
+.login-page {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 20px;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(0, 255, 100, 0.08),
+      transparent 35%
+    ),
+    #020502;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+/* Cyber grid */
+
+.login-page::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 255, 100, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 255, 100, 0.05) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+
+  opacity: 0.25;
+
+  pointer-events: none;
+}
+
+
+/* Main container */
+
+.login-container {
+  width: 100%;
+  max-width: 660px;
+
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Logo */
+
+.login-brand {
+  font-family: "JetBrains Mono", monospace;
+
+  font-size: 24px;
+
+  font-weight: 700;
+
+  letter-spacing: 5px;
+
+  color: #eaffea;
+
+  margin-bottom: 20px;
+}
+
+.login-brand span {
+  color: #00ff66;
+
+  margin-right: 12px;
+
+  text-shadow:
+    0 0 10px #00ff66,
+    0 0 25px rgba(0, 255, 100, 0.5);
+}
+
+
+/* Authentication label */
+
+.auth-label {
+  font-family: "JetBrains Mono", monospace;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  color: #00ff66;
+
+  margin-bottom: 35px;
+
+  text-shadow:
+    0 0 10px rgba(0, 255, 100, 0.4);
+}
+
+
+/* Card */
+
+.login-card {
+  width: 100%;
+
+  border: 1px solid rgba(0, 255, 100, 0.25);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(7, 15, 8, 0.96),
+      rgba(2, 7, 3, 0.98)
+    );
+
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(0, 255, 100, 0.04);
+
+  border-radius: 4px;
+
+  overflow: hidden;
+}
+
+
+/* Header */
+
+.login-header {
+  text-align: center;
+
+  padding: 48px 40px 30px;
+}
+
+.login-header h1 {
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 38px;
+
+  font-weight: 600;
+
+  letter-spacing: -1.5px;
+
+  color: #efffef;
+}
+
+.login-header p {
+  margin-top: 12px;
+
+  color: #718071;
+
+  font-size: 14px;
+}
+
+
+/* Divider */
+
+.divider {
+  height: 1px;
+
+  background: rgba(0, 255, 100, 0.12);
+
+  margin: 0 48px;
+}
+
+
+/* Form */
+
+.login-card form {
+  padding: 35px 48px 0;
+}
+
+
+/* Input group */
+
+.input-group {
+  margin-bottom: 25px;
+}
+
+.input-group label {
+  display: block;
+
+  text-align: left;
+
+  margin-bottom: 10px;
+
+  color: #00ff66;
+
+  font-family: "JetBrains Mono", monospace;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* Input */
+
+.input-wrapper {
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #293529;
+
+  background: rgba(0, 0, 0, 0.3);
+
+  transition: 0.25s;
+}
+
+.input-wrapper:focus-within {
+  border-color: #00ff66;
+
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 100, 0.1),
+    0 0 25px rgba(0, 255, 100, 0.06);
+}
+
+
+/* Icons */
+
+.input-icon {
+  width: 55px;
+
+  text-align: center;
+
+  color: #00ff66;
+
+  font-size: 19px;
+
+  opacity: 0.9;
+}
+
+
+/* Input field */
+
+.input-wrapper input {
+  flex: 1;
+
+  height: 100%;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #dffff0;
+
+  font-family: "JetBrains Mono", monospace;
+
+  font-size: 13px;
+
+  padding-right: 15px;
+}
+
+.input-wrapper input::placeholder {
+  color: #566056;
+}
+
+
+/* Password */
+
+.password-group {
+  position: relative;
+}
+
+.forgot-password {
+  display: block;
+
+  margin-left: auto;
+
+  margin-top: 9px;
+
+  border: none;
+
+  background: none;
+
+  color: #00d957;
+
+  font-family: "JetBrains Mono", monospace;
+
+  font-size: 10px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.forgot-password:hover {
+  color: #00ff66;
+
+  text-shadow:
+    0 0 8px rgba(0, 255, 100, 0.5);
+}
+
+
+/* Login button */
+
+.login-button {
+  width: 100%;
+
+  height: 58px;
+
+  margin-top: 10px;
+
+  border: none;
+
+  background: #00e85d;
+
+  color: #021006;
+
+  font-family: "JetBrains Mono", monospace;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  transition: 0.25s;
+
+  box-shadow:
+    0 0 25px rgba(0, 255, 100, 0.15);
+}
+
+.login-button span {
+  margin-left: 18px;
+
+  font-size: 17px;
+}
+
+.login-button:hover {
+  background: #00ff66;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 0 30px rgba(0, 255, 100, 0.3),
+    0 0 70px rgba(0, 255, 100, 0.08);
+}
+
+
+/* Register */
+
+.register-section {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 35px 20px;
+
+  color: #687568;
+
+  font-size: 13px;
+}
+
+.register-section a {
+  color: #00e85d;
+
+  text-decoration: none;
+
+  transition: 0.2s;
+}
+
+.register-section a:hover {
+  color: #00ff66;
+
+  text-decoration: underline;
+}
+
+
+/* Security */
+
+.security-section {
+  height: 90px;
+
+  border-top: 1px solid rgba(0, 255, 100, 0.12);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #465246;
+
+  font-family: "JetBrains Mono", monospace;
+
+  font-size: 10px;
+
+  letter-spacing: 1.5px;
+}
+
+.security-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #00ff66;
+
+  box-shadow:
+    0 0 8px #00ff66,
+    0 0 20px rgba(0, 255, 100, 0.5);
+
+  animation: securityPulse 2s infinite;
+}
+
+
+/* Animation */
+
+@keyframes securityPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .login-container {
+    max-width: 500px;
+  }
+
+  .login-header {
+    padding: 35px 25px 25px;
+  }
+
+  .login-header h1 {
+    font-size: 30px;
+  }
+
+  .login-card form {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .divider {
+    margin: 0 25px;
+  }
+
+  .login-brand {
+    font-size: 19px;
+  }
+
+  .auth-label {
+    font-size: 9px;
+  }
+}
